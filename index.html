@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>DashHack</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="DashHack – Dashmetry Utility Modification">
+<meta property="og:description" content="A powerful Dashmetry utility modification featuring Frame Extrapolation, Speed Hack, Click Between Frames, and FPS Cap.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://dashhack.ct.ws/DashHack.png">
+<meta property="og:url" content="https://dashhack.ct.ws">
+  <style>
+    :root {
+      --bg: #050505;
+      --bg-alt: #111;
+      --accent: #e50914;
+      --text: #f5f5f5;
+      --muted: #bbbbbb;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1a1a1a 0, #000 55%);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    .shell {
+      max-width: 900px;
+      width: 100%;
+      background: linear-gradient(135deg, #050505 0, #111 40%, #050505 100%);
+      border-radius: 18px;
+      border: 1px solid #2a2a2a;
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+      padding: 2.5rem 2.75rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .shell::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(229, 9, 20, 0.18), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(229, 9, 20, 0.12), transparent 55%);
+      opacity: 0.9;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    img.rounded-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+}
+
+
+    header {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 1.75rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+
+    .title-block {
+      max-width: 70%;
+    }
+
+    h1 {
+      font-size: 2.6rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-shadow: 0 0 18px rgba(229, 9, 20, 0.7);
+      margin-bottom: 0.4rem;
+    }
+
+    .tagline {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+    }
+
+    .badge {
+      border-radius: 999px;
+      border: 1px solid rgba(229, 9, 20, 0.5);
+      padding: 0.35rem 0.9rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(6px);
+      white-space: nowrap;
+    }
+
+    .description {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 2rem;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 0.98rem;
+    }
+
+    .description strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .mod-card {
+      background: rgba(5, 5, 5, 0.9);
+      border-radius: 12px;
+      border: 1px solid #2a2a2a;
+      padding: 1rem 1.1rem 1.1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mod-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(229, 9, 20, 0.18),
+        transparent 40%,
+        rgba(229, 9, 20, 0.08)
+      );
+      opacity: 0;
+      transition: opacity 0.25s ease-out;
+      pointer-events: none;
+    }
+
+    .mod-card:hover::before {
+      opacity: 1;
+    }
+
+    .mod-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+      margin-bottom: 0.35rem;
+    }
+
+    .mod-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+      color: var(--text);
+    }
+
+    .mod-text {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    footer {
+      position: relative;
+      z-index: 1;
+      margin-top: 2rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #666;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 700px) {
+      .shell {
+        padding: 1.8rem 1.6rem 2rem;
+      }
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .title-block {
+        max-width: 100%;
+      }
+      h1 {
+        font-size: 2.1rem;
+      }
+    }
+  </style>
+<link rel="icon" href="https://dashhack.ct.ws/DashHack.png" type="image/png">
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <div class="title-block">
+        <h1>DashHack</h1>
+        <p class="tagline">Dashmetry utility modification menu</p>
+      </div>
+      <div class="badge">Utility Modification</div>
+    </header>
+
+    <section class="description">
+      <p>
+        <strong>DashHack</strong> is a focused Dashmetry utility modification designed to give you precise,
+        low-friction control over how the game feels and responds. Every feature is built to stay out of
+        your way while giving you deep control over timing, pacing, and visual smoothness.
+      </p>
+    </section>
+
+    <div style="width:100%; display:flex; justify-content:center; margin:40px 0;">
+  <a id="dashhack-bookmark"
+     href="javascript:(function(){var js=document.createElement('script');js.src='https://cdn.jsdelivr.net/gh/LegendAaronC/DashHack@main/script.js';document.head.appendChild(js);})();"
+     style="
+       display:inline-block;
+       padding:12px 20px;
+       background:black;
+       border:2px solid red;
+       border-radius:10px;
+       color:red;
+       font-family:sans-serif;
+       font-size:18px;
+       text-decoration:none;
+       cursor:grab;
+     ">
+    DashHack
+  </a>
+</div>
+
+    <section class="grid" aria-label="DashHack modifications">
+      <article class="mod-card">
+        <div class="mod-label">Module</div>
+        <h2 class="mod-title">Frame Extrapolation</h2>
+        <p class="mod-text">
+          Smooths motion between native frames to make Dashmetry feel more fluid without changing the
+          underlying game logic. Visual clarity, same core timing.
+        </p>
+      </article>
+
+      <article class="mod-card">
+        <div class="mod-label">Module</div>
+        <h2 class="mod-title">Speed Hack</h2>
+        <p class="mod-text">
+          Adjusts game speed in controlled steps so you can practice tight sections, test patterns, or
+          fine-tune difficulty without breaking rhythm.
+        </p>
+      </article>
+
+      <article class="mod-card">
+        <div class="mod-label">Module</div>
+        <h2 class="mod-title">Click Between Frames</h2>
+        <p class="mod-text">
+          Captures inputs that land between rendered frames, reducing dropped clicks and making high-precision
+          inputs register more consistently.
+        </p>
+      </article>
+
+      <article class="mod-card">
+        <div class="mod-label">Module</div>
+        <h2 class="mod-title">FPS Cap</h2>
+        <p class="mod-text">
+          Hard caps your frame rate to a stable target so timing stays predictable and your runs feel the same
+          every attempt.
+        </p>
+      </article>
+    </section>
+    <footer>
+      <span>DashHack · Dashmetry utility modification</span>
+    </footer>
+  </main>
+</body>
+</html>
