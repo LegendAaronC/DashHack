@@ -1,7 +1,7 @@
 # DashHack
 Dashmetry menu.
 # Why choose DashHack?
-There is no other alternative lol. Anyway this is free so enjoy i guess.
+There is no other alternative lol. Anyway this is free so enjoy.
 # Where can I get this?
 Easy, https://dashhack.pages.dev is the official url. Any other url is a virus.
 # Why is it obfuscated?
