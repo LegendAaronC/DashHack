@@ -1,5 +1,5 @@
 # DashHack
-Dashmetry menu.
+DashHack is a Dashmetry mod menu thats free, only available at its official URL, kept obfuscated for security, and not allowed to be copied or reused.
 # Why choose DashHack?
 There is no other alternative lol. Anyway this is free so enjoy.
 # Where can I get this?
@@ -12,9 +12,3 @@ Because it is obfuscated so that makes the load time longer.
 Never but the only time i can guarantee is when i stop developing this menu. Then i will make it unobfuscated and an offline version too.
 # Am I allowed to copy this to make my own menu?
 NO, SKIDDING IS BAD. MAKE YOUR OWN STUFF.
-
-
-
-
-
-DashHack is a Dashmetry mod menu thats free, only available at its official URL, kept obfuscated for security, and not allowed to be copied or reused.
