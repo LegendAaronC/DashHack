@@ -1,5 +1,6 @@
 # DashHack
-DashHack is a Dashmetry mod menu thats free, only available at its official URL, kept obfuscated for security, and not allowed to be copied or reused.
+# Summarized Description
+DashHack is a Dashmetry mod menu thats free, only available at its official URL (https://dashhack.pages.dev), kept obfuscated for security, and not allowed to be copied or reused.
 # Why choose DashHack?
 There is no other alternative lol. Anyway this is free so enjoy.
 # Where can I get this?
