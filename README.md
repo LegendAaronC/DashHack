@@ -12,4 +12,4 @@ Because it is obfuscated so that makes the load time longer.
 # When will it stop being obfuscated?
 Never but the only time i can guarantee is when i stop developing this menu. Then i will make it unobfuscated and an offline version too.
 # Am I allowed to copy this to make my own menu?
-NO, SKIDDING IS BAD. MAKE YOUR OWN STUFF.
+You can't take this code but you might be intrested in something that is in the works.
